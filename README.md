@@ -33,3 +33,7 @@ Features for v1.0.0
 How can I Request Additional Features?
 ---------------------
 - Please submit all feature requests or bug reports to https://github.com/mikecotrone/MC-TabControl/issues
+
+I Still Have a Question
+---------------------
+- Email me at mikec@2tab.io
