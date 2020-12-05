@@ -29,14 +29,14 @@ Begin Window Window1
       AllowFocus      =   False
       AllowFocusRing  =   False
       AllowTabs       =   True
-      BackColor       =   &c00000000
+      BackColor       =   &cE8EAE900
       Backdrop        =   0
-      BorderColor     =   &c00000000
-      BorderWidth     =   0.0
+      BorderColor     =   &c68696900
+      BorderWidth     =   1.0
       displayModeInt  =   0
       DoubleBuffer    =   False
       Enabled         =   True
-      FirstTabIndent  =   0
+      FirstTabIndent  =   20
       Height          =   40
       Index           =   -2147483648
       InitialParent   =   ""
@@ -48,12 +48,12 @@ Begin Window Window1
       LockRight       =   True
       LockTop         =   True
       mouseOverLastTabIndexInt=   0
-      MouseOverTabBorderColor=   &c00000000
+      MouseOverTabBorderColor=   &cC7C7C700
       Scope           =   0
-      TabFixedHeight  =   0.0
-      TabFixedWidth   =   0.0
-      TabIconPictureHeight=   0.0
-      TabIconPictureWidth=   0.0
+      TabFixedHeight  =   40.0
+      TabFixedWidth   =   86.0
+      TabIconPictureHeight=   24.0
+      TabIconPictureWidth=   24.0
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
@@ -144,18 +144,6 @@ End
 #tag Events mcTabPanel
 	#tag Event
 		Sub Open()
-		  // SET GLOBAL SETTINGS FOR  MC TAB PANEL CONTROL
-		  Me.backColor = kEditProfileGrayBackColor 
-		  Me.borderColor = &c979797 
-		  Me.mouseOverTabBorderColor = &cC7C7C7 
-		  Me.BorderWidth = 1.0 
-		  Me.TabFixedWidth = 86 
-		  Me.TabFixedHeight = Me.Height
-		  Me.displayModeInt = 0
-		  Me.FirstTabIndent = 20
-		  Me.TabIconPictureWidth = 24
-		  Me.TabIconPictureHeight = 24
-		  
 		  // ---- CREATE TEST TAB  ---- //
 		  Var testTabItem As New tabClass("Test Tab")
 		  testTabItem.useTabIconPictureBool = True
