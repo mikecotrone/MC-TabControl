@@ -140,13 +140,13 @@ Inherits Canvas
 		  g.FillRectangle(0, 0, g.Width, g.Height)
 		  
 		  // PRE TAB UNDERLINE IF THE FIRSTTABINDENT IS > 0
-		  If Me.firstTabIndentInt > 0 Then
+		  If Me.FirstTabIndent > 0 Then
 		    // POST TAB UNDERLINE
 		    Var lineX1pos As Double = 0
 		    Var lineY1pos As Double =  g.Height-1
-		    Var lineX2pos As Double = Me.firstTabIndentInt
+		    Var lineX2pos As Double = Me.FirstTabIndent
 		    Var lineY2pos As Double = g.Height-1
-		    g.PenSize = Me.borderWidthDbl
+		    g.PenSize = Me.BorderWidth
 		    g.DrawingColor = Me.borderColor
 		    g.DrawLine(lineX1pos, lineY1pos, lineX2pos, lineY2pos)
 		  End If
@@ -185,12 +185,12 @@ Inherits Canvas
 		          End If
 		          
 		          // ACTIVE TAB: DRAW BEZIER CURVED TAB
-		          g.PenSize = Me.borderWidthDbl
-		          g.DrawingColor = Me.borderColor
+		          g.PenSize = Me.BorderWidth
+		          g.DrawingColor = Me.BorderColor
 		          Var leftLineX1Pos As Double = thisTabArr(i).tabRect.Left
-		          Dim heightDbl As Double = tabFixedHeightDbl
+		          Dim heightDbl As Double = TabFixedHeight
 		          Dim curveDbl As Double = thisTabArr(i).tabTopCurveDbl
-		          Dim widthDbl As Double = tabFixedWidthDbl - curveDbl
+		          Dim widthDbl As Double = TabFixedWidth - curveDbl
 		          Dim offsetDbl As Double = leftLineX1Pos
 		          Call drawBezierTabBorder(g, leftLineX1Pos, heightDbl, curveDbl, widthDbl, offsetDbl)
 		          
@@ -210,12 +210,12 @@ Inherits Canvas
 		          g.DrawString(tabActiveCaptionStr, tabActiveTextXpos, tabActiveTextYpos)
 		          
 		          // ACTIVE TAB: DRAW BEZIER CURVED TAB
-		          g.PenSize = Me.borderWidthDbl
+		          g.PenSize = Me.BorderWidth
 		          g.DrawingColor = Me.borderColor
 		          Var leftLineX1Pos As Double = thisTabArr(i).tabRect.Left
-		          Dim heightDbl As Double = tabFixedHeightDbl
+		          Dim heightDbl As Double = TabFixedHeight
 		          Dim curveDbl As Double = 3
-		          Dim widthDbl As Double = tabFixedWidthDbl - curveDbl
+		          Dim widthDbl As Double = TabFixedWidth - curveDbl
 		          Dim offsetDbl As Double = leftLineX1Pos
 		          Call drawBezierTabBorder(g, leftLineX1Pos, heightDbl, curveDbl, widthDbl, offsetDbl)
 		        End If
@@ -228,12 +228,12 @@ Inherits Canvas
 		          
 		          // DRAW BEZIER CURVED TAB
 		          g.DrawingColor = Me.mouseOverTabBorderColor
-		          g.PenSize = Me.borderWidthDbl
+		          g.PenSize = Me.BorderWidth
 		          g.DrawingColor = Me.borderColor
-		          Var leftLineX1Pos As Double = thisTabArr(i).tabRect.Left - Me.borderWidthDbl
-		          Var heightDbl As Double = tabFixedHeightDbl
+		          Var leftLineX1Pos As Double = thisTabArr(i).tabRect.Left - Me.BorderWidth
+		          Var heightDbl As Double = TabFixedHeight
 		          Var curveDbl As Double = thisTabArr(i).tabTopCurveDbl
-		          Var widthDbl As Double = (tabFixedWidthDbl - curveDbl) + Me.borderWidthDbl
+		          Var widthDbl As Double = (TabFixedWidth - curveDbl) + Me.BorderWidth
 		          Var offsetDbl As Double = leftLineX1Pos
 		          Call drawBezierTabBorder(g, leftLineX1Pos, heightDbl, curveDbl, widthDbl, offsetDbl)
 		          
@@ -251,7 +251,7 @@ Inherits Canvas
 		          Var lineY1pos As Double =  thisTabArr(i).tabRect.Bottom-1
 		          Var lineX2pos As Double = thisTabArr(i).tabRect.Right
 		          Var lineY2pos As Double = thisTabArr(i).tabRect.Bottom-1
-		          g.PenSize = Me.borderWidthDbl
+		          g.PenSize = Me.BorderWidth
 		          g.DrawingColor = Me.borderColor
 		          g.DrawLine(lineX1pos, lineY1pos, lineX2pos, lineY2pos)
 		          
@@ -276,7 +276,7 @@ Inherits Canvas
 		          Var lineY1pos As Double =  thisTabArr(i).tabRect.Bottom-1
 		          Var lineX2pos As Double = thisTabArr(i).tabRect.Right
 		          Var lineY2pos As Double = thisTabArr(i).tabRect.Bottom-1
-		          g.PenSize = Me.borderWidthDbl
+		          g.PenSize = Me.BorderWidth
 		          g.DrawingColor = Me.borderColor
 		          g.DrawLine(lineX1pos, lineY1pos, lineX2pos, lineY2pos)
 		        End If
@@ -294,8 +294,8 @@ Inherits Canvas
 		  Var lineY1pos As Double =  g.Height-1
 		  Var lineX2pos As Double = g.Width
 		  Var lineY2pos As Double = g.Height-1
-		  g.PenSize = Me.borderWidthDbl
-		  g.DrawingColor = Me.borderColor
+		  g.PenSize = Me.BorderWidth
+		  g.DrawingColor = Me.BorderColor
 		  g.DrawLine(lineX1pos, lineY1pos, lineX2pos, lineY2pos)
 		  
 		End Sub
@@ -321,11 +321,11 @@ Inherits Canvas
 		  // CALCULATE TAB'S RECT
 		  if tabClassArray(thisIndexInt).tabRect = Nil Then
 		    Var thisTabIndexInt as Integer = tabClassArray(thisIndexInt).tabIndexInt
-		    Var rectW as Double = me.tabFixedWidthDbl
-		    Var rectH as Double = me.tabFixedHeightDbl
+		    Var rectW as Double = me.TabFixedWidth
+		    Var rectH as Double = me.TabFixedHeight
 		    Var rectXpos as Double
 		    If thisTabIndexInt =  0 Then
-		      rectXpos =  firstTabIndentInt
+		      rectXpos =  FirstTabIndent
 		    Else
 		      Var prevIndexInt as Integer = thisIndexInt - 1
 		      rectXpos =  tabClassArray(prevIndexInt).tabRect.right
@@ -392,8 +392,8 @@ Inherits Canvas
 		    Self.DoubleBuffer = True
 		  #ENDIF
 		  
-		  Var tabActiveIconImageW1 as Double = tabIconPictureWdbl
-		  Var tabActiveIconImageH1 as Double = tabIconPictureHdbl
+		  Var tabActiveIconImageW1 as Double = TabIconPictureWidth
+		  Var tabActiveIconImageH1 as Double = TabIconPictureHeight
 		  Var tabActiveIconXpos as Double = tabLeftDbl + tabW/2 - tabActiveIconImageW1/2
 		  Var tabActiveIconYpos as Double = tabTopDbl + (tabH/2 - tabActiveIconImageH1/2)
 		  Var tabActiveIconImageSx as Double = 0
@@ -424,15 +424,15 @@ Inherits Canvas
 
 
 	#tag Property, Flags = &h0
-		backColor As Color
+		BackColor As Color
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		borderColor As Color
+		BorderColor As Color
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		borderWidthDbl As Double
+		BorderWidth As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -440,7 +440,7 @@ Inherits Canvas
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		firstTabIndentInt As Integer
+		FirstTabIndent As Integer
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -452,7 +452,7 @@ Inherits Canvas
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		mouseOverTabBorderColor As color
+		MouseOverTabBorderColor As color
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
@@ -468,19 +468,19 @@ Inherits Canvas
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		tabFixedHeightDbl As Double
+		TabFixedHeight As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		tabFixedWidthDbl As Double
+		TabFixedWidth As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		tabIconPictureHdbl As Double
+		TabIconPictureHeight As Double
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		tabIconPictureWdbl As Double
+		TabIconPictureWidth As Double
 	#tag EndProperty
 
 
@@ -582,14 +582,6 @@ Inherits Canvas
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="TabPanelIndex"
-			Visible=false
-			Group="Position"
-			InitialValue="0"
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="TabStop"
 			Visible=true
 			Group="Position"
@@ -670,6 +662,110 @@ Inherits Canvas
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="BackColor"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue="&c000000"
+			Type="Color"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TabIconPictureHeight"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue=""
+			Type="Double"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TabIconPictureWidth"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue=""
+			Type="Double"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TabFixedWidth"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue=""
+			Type="Double"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TabFixedHeight"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue=""
+			Type="Double"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="FirstTabIndent"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BorderWidth"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue=""
+			Type="Double"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="BorderColor"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue="&c000000"
+			Type="Color"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="MouseOverTabBorderColor"
+			Visible=true
+			Group="Tab Control Behavior"
+			InitialValue="&c000000"
+			Type="color"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="mouseOverLastTabIndexInt"
+			Visible=false
+			Group="Tab Control Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="lastVisitedTabIndexInt"
+			Visible=false
+			Group="Tab Control Behavior"
+			InitialValue="-1"
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="displayModeInt"
+			Visible=false
+			Group="Tab Control Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TabPanelIndex"
+			Visible=false
+			Group="Position"
+			InitialValue="0"
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="DoubleBuffer"
 			Visible=false
 			Group="Behavior"
@@ -683,102 +779,6 @@ Inherits Canvas
 			Group=""
 			InitialValue=""
 			Type="String"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="borderColor"
-			Visible=false
-			Group="Behavior"
-			InitialValue="&c000000"
-			Type="Color"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="borderWidthDbl"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Double"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="displayModeInt"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="tabFixedWidthDbl"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Double"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="tabFixedHeightDbl"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Double"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="firstTabIndentInt"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mouseOverTabBorderColor"
-			Visible=false
-			Group="Behavior"
-			InitialValue="&c000000"
-			Type="color"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="mouseOverLastTabIndexInt"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="lastVisitedTabIndexInt"
-			Visible=false
-			Group="Behavior"
-			InitialValue="-1"
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="backColor"
-			Visible=false
-			Group="Behavior"
-			InitialValue="&c000000"
-			Type="Color"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="tabIconPictureWdbl"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Double"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="tabIconPictureHdbl"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Double"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

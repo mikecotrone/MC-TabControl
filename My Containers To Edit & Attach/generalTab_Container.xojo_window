@@ -470,26 +470,6 @@ End
 
 #tag EndWindowCode
 
-#tag Events emailAddr_Label
-#tag EndEvents
-#tag Events mobileNumber_Label
-#tag EndEvents
-#tag Events mobileNumber_Textfield
-#tag EndEvents
-#tag Events username_Label
-#tag EndEvents
-#tag Events username_Textfield
-#tag EndEvents
-#tag Events username_Label1
-#tag EndEvents
-#tag Events fullName_Textfield
-#tag EndEvents
-#tag Events emailAddr_Textfield
-#tag EndEvents
-#tag Events emailAddr_Label1
-#tag EndEvents
-#tag Events farmMember_Listbox
-#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Name"

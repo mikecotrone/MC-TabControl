@@ -105,8 +105,6 @@ End
 
 #tag EndWindowCode
 
-#tag Events username_Label
-#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Name"

@@ -340,10 +340,6 @@ End
 
 #tag EndWindowCode
 
-#tag Events altVoiceNum_Label
-#tag EndEvents
-#tag Events mobileNumber_Label
-#tag EndEvents
 #tag Events mobileNumber_Textfield
 	#tag Event
 		Sub TextChange()
@@ -375,12 +371,6 @@ End
 		  Me.MouseCursor = System.Cursors.StandardPointer
 		End Sub
 	#tag EndEvent
-#tag EndEvents
-#tag Events altPhoneNumber_Textfield
-#tag EndEvents
-#tag Events altVoiceNum_Label1
-#tag EndEvents
-#tag Events mobileNumber_Label1
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
