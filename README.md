@@ -30,6 +30,10 @@ Features for v1.0.0
 + Create your own custom containers to attach to any tab
 + Easy to use
 
+Documentation
+---------------------
+https://github.com/mikecotrone/MC-TabControl/wiki
+
 How can I Request Additional Features?
 ---------------------
 - Please submit all feature requests or bug reports to https://github.com/mikecotrone/MC-TabControl/issues
