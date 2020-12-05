@@ -28,6 +28,7 @@ Features for v1.0.0
 + Mouse over tab highlight suggestion
 + Create tabs at runtime
 + Create your own custom containers to attach to any tab
++ Static Tab width and height (Purposefully done as having varying width tabs is super ugly)
 + Easy to use
 
 Documentation
