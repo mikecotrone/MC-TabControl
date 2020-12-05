@@ -22,7 +22,7 @@ Begin ContainerControl securityTab_Container
    TabStop         =   True
    Tooltip         =   ""
    Top             =   0
-   Transparent     =   True
+   Transparent     =   False
    Visible         =   True
    Width           =   750
    Begin Label altVoiceNum_Label
@@ -132,7 +132,7 @@ Begin ContainerControl securityTab_Container
       TextColor       =   &c00000000
       Tooltip         =   ""
       Top             =   119
-      Transparent     =   False
+      Transparent     =   True
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
@@ -175,7 +175,7 @@ Begin ContainerControl securityTab_Container
       TextColor       =   &c00000000
       Tooltip         =   ""
       Top             =   170
-      Transparent     =   False
+      Transparent     =   True
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
@@ -288,7 +288,7 @@ Begin ContainerControl securityTab_Container
       TextColor       =   &c00000000
       Tooltip         =   ""
       Top             =   68
-      Transparent     =   False
+      Transparent     =   True
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
@@ -299,7 +299,23 @@ End
 
 #tag WindowCode
 	#tag Event
+		Sub Open()
+		  #If TargetWindows Then
+		    me.Composite = true
+		    Me.DoubleBuffer = True
+		  #endif
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  g.AntiAliasMode = Global.Graphics.AntiAliasModes.HighQuality
+		  g.AntiAlias = True
+		  
+		  #IF TargetWindows = True Then
+		    Self.DoubleBuffer = True
+		  #ENDIF
+		  
 		  // TOP PADDING BACKGROUND FILL
 		  g.DrawingColor =  &cFFFFFF
 		  g.FillRectangle(0,0, g.Width, g.Height)

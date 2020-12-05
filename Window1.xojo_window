@@ -90,7 +90,7 @@ Begin Window Window1
       TextColor       =   &c00000000
       Tooltip         =   ""
       Top             =   20
-      Transparent     =   False
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   177
@@ -99,6 +99,26 @@ End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Open()
+		  #If TargetWindows Then
+		    me.Composite = true
+		  #endif
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  g.AntiAliasMode = Global.Graphics.AntiAliasModes.HighQuality
+		  g.AntiAlias = True
+		  g.DrawingColor = kEditProfileGrayBackColor
+		  g.FillRectangle(0, 0, g.Width, g.Height)
+		  
+		  
+		End Sub
+	#tag EndEvent
+
+
 	#tag Note, Name = *** READ ME FIRST
 		README:
 		
@@ -209,4 +229,6 @@ End
 		  
 		End Sub
 	#tag EndEvent
+#tag EndEvents
+#tag Events Label1
 #tag EndEvents

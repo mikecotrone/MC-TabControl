@@ -22,7 +22,7 @@ Begin ContainerControl generalTab_Container
    TabStop         =   True
    Tooltip         =   ""
    Top             =   0
-   Transparent     =   True
+   Transparent     =   False
    Visible         =   True
    Width           =   750
    Begin Label emailAddr_Label
@@ -131,12 +131,12 @@ Begin ContainerControl generalTab_Container
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   269
-      Transparent     =   False
+      Top             =   270
+      Transparent     =   True
       Underline       =   False
       ValidationMask  =   ""
       Visible         =   True
-      Width           =   32
+      Width           =   249
    End
    Begin Label username_Label
       AllowAutoDeactivate=   True
@@ -417,7 +417,7 @@ Begin ContainerControl generalTab_Container
       TabStop         =   True
       Tooltip         =   ""
       Top             =   149
-      Transparent     =   False
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   249
@@ -429,7 +429,24 @@ End
 
 #tag WindowCode
 	#tag Event
+		Sub Open()
+		  #If TargetWindows Then
+		    me.Composite = true
+		    Me.DoubleBuffer = True
+		  #endif
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  g.AntiAliasMode = Global.Graphics.AntiAliasModes.HighQuality
+		  g.AntiAlias = True
+		  
+		  #IF TargetWindows = True Then
+		    Self.DoubleBuffer = True
+		  #ENDIF
+		  
 		  // TOP PADDING BACKGROUND FILL
 		  g.DrawingColor =  &cFFFFFF
 		  g.FillRectangle(0,0, g.Width, g.Height)

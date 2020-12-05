@@ -89,7 +89,6 @@ Inherits Canvas
 
 	#tag Event
 		Sub MouseUp(X As Integer, Y As Integer)
-		  // FIND WHICH TAB WE ARE OVER AND THEN RAISE EVENT HANDLER
 		  Var i as Integer
 		  Var thisTabClassArr() as tabClass = tabClassArray()
 		  Var lc as Integer = thisTabClassArr.LastIndex
@@ -131,6 +130,10 @@ Inherits Canvas
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
 		  g.AntiAliasMode = Global.Graphics.AntiAliasModes.HighQuality
 		  g.AntiAlias = True
+		  
+		  #IF TargetWindows = True Then
+		    Me.DoubleBuffer = True
+		  #ENDIF
 		  
 		  // DEFAULT BACKGROUND
 		  g.DrawingColor = Me.BackColor
@@ -362,6 +365,9 @@ Inherits Canvas
 		Private Function drawBezierTabBorder(g as Graphics, leftLineX1Pos as Double, heightDbl as Double, curveDbl as Double, widthDbl as Double, offsetDbl as Double) As Boolean
 		  g.AntiAliasMode = Global.Graphics.AntiAliasModes.HighQuality
 		  g.AntiAlias = True
+		  #IF TargetWindows = True Then
+		    Self.DoubleBuffer = True
+		  #ENDIF
 		  
 		  Var p As New GraphicsPath
 		  p.MoveToPoint(g.PenSize / 2, heightDbl + g.PenSize / 2)
@@ -382,6 +388,9 @@ Inherits Canvas
 		Private Function drawTabIcon(g as Graphics, tabActiveIconPicture as Picture, tabLeftDbl as Double, tabTopDbl as Double, tabW as Double, tabH as Double) As Boolean
 		  g.AntiAliasMode = Global.Graphics.AntiAliasModes.HighQuality
 		  g.AntiAlias = True
+		  #IF TargetWindows = True Then
+		    Self.DoubleBuffer = True
+		  #ENDIF
 		  
 		  Var tabActiveIconImageW1 as Double = tabIconPictureWdbl
 		  Var tabActiveIconImageH1 as Double = tabIconPictureHdbl
