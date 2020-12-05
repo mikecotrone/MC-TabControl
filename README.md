@@ -9,7 +9,7 @@ Author:         Mike Cotrone (mikec@2tab.io)
 
 Version:        1.0.0
 
-Contributors:   Mike Cotrone, Julian Samphire
+Contributors:   Mike Cotrone, Julian Samphire (@JulianSamphire)
 
  ![image](https://github.com/mikecotrone/MC-TabControl/blob/master/screenshots/mcTabPanelSS1.png)
 
