@@ -5,7 +5,7 @@ Date:           December 2020
 
 Language:       Xojo 
 
-Author:         Mike Cotrone (mikec@2tab.io)
+Author:         Mike Cotrone (mikec@vistatechgso.com)
 
 Version:        1.0.0
 
