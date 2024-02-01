@@ -41,4 +41,4 @@ How can I Request Additional Features?
 
 What if I Still Have Questions?
 ---------------------
-- Email me at mikec@2tab.io
+- Email me at mikec@vistatechgso.com
